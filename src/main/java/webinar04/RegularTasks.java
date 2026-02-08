@@ -17,6 +17,7 @@ public class RegularTasks {
         System.out.println(isLettersA_K_a_k_andSpase("c ADK fa"));
         System.out.println(isNotDigits("frt$etrJH"));
         System.out.println(isEnglishFullName("Sveta Sveta"));
+        System.out.println(isEmail("Tty$bu_123.er@trey.cgr"));
     }
 
     // a-k A-K " "
@@ -45,4 +46,12 @@ public class RegularTasks {
         return matcher.matches();
     }
     // " " "\\s+"
+
+    static Boolean isEmail(String str){
+        if (str == null|| str.isBlank())
+            return null;
+        Pattern pattern = Pattern.compile("^[\\w.-]+@[a-z]+\\.[a-z]{3}$"); // myemail.123_tyu@rty.com
+        Matcher matcher = pattern.matcher(str);
+        return matcher.matches();
+    }
 }
