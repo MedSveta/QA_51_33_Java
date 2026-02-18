@@ -1,6 +1,6 @@
 package webinar07;
 
-public class Centaur extends Human implements Horse{
+public class Centaur extends Human implements Horse, Comparable<Centaur>{
     public static final String HABITAT_CENTAUR =
             "mountains and forests";
 
@@ -10,7 +10,7 @@ public class Centaur extends Human implements Horse{
 
     @Override
     public String toString() {
-        return super.toString() + "Centaur";
+        return "Centaur{} " + super.toString();
     }
 
     @Override
@@ -26,5 +26,11 @@ public class Centaur extends Human implements Horse{
     @Override
     public void fendingOffFliesWithMyTail() {
         Horse.super.fendingOffFliesWithMyTail();
+    }
+
+    @Override
+    public int compareTo(Centaur anotherCentaur) {
+        int res = this.getAge() - anotherCentaur.getAge();
+        return res == 0?Double.compare(this.getWeight(), anotherCentaur.getWeight()): res;
     }
 }

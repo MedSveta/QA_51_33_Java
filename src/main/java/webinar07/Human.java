@@ -57,9 +57,20 @@ public class Human {
         isMale = male;
     }
 
+//    @Override
+//    public String toString() {
+//        return "Human - ";
+//    }
+
+
     @Override
     public String toString() {
-        return "Human - ";
+        return "Human{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", weight=" + weight +
+                ", isMale=" + isMale +
+                '}';
     }
 
     @Override
