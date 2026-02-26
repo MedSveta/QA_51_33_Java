@@ -63,17 +63,32 @@ public class MyArray implements IMyArray {
 
     @Override
     public Object remove(int index) {
-        return null;
+        if (index < 0 || index >= size)
+            return null;
+        Object res = array[index];
+        System.arraycopy(array, index+1, array, index, size- index-1);
+        // 1,2, 3, 4   2, 3, 4, 4
+        array[size] = null;
+        size--;
+        return res;
     }
 
     @Override
     public boolean remove(Object obj) {
+        if(obj == null)
         return false;
+
     }
 
     @Override
     public int indexOf(Object obj) {
-        return 0;
+        if(obj == null)
+        return -1;
+        for (int i = 0; i < size; i++) {
+            if (array[i].equals(obj))
+                return i;
+        }
+        return -1;
     }
 
     @Override
@@ -88,6 +103,6 @@ public class MyArray implements IMyArray {
 
     @Override
     public Object[] toArray() {
-        return new Object[0];
+        return Arrays.copyOf(array, size);
     }
 }
